@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<style>
+body{
+font-family: Verdana, Arial, sans;	
+}
+#all_facets{
+	width: 184px;
+	float: left;
+	clear: left;
+}
+#all_facets div{
+	
+	width: 184px;
+	max-height: 175px;
+	min-height: 50px;
+	margin: 0px;
+	padding: 7px 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-bottom: 1px solid #dadada;
+	
+	
+}
+#all_facets h4{
+	width: 164px;
+	margin: 0px;
+	padding: 5px 10px;
+	font-size: 10px;
+	line-height: 1.75em;
+	border: solid #ccc;
+	border-width: 0px 0px 1px;
+	color: #2c5987;
+	text-transform: uppercase;
+	curser: pointer;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	
+	
+	
+}
+#all_facets .nosh{
+	width: 166px;
+	margin: 0px 0px 13px;
+	background-color: #a4b344;
+
+}
+h3.nosh{
+	position: relative;
+	height: auto !important;
+	background: #a4b344;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: rgba(122,136,37,.7) 1px 1px 0;
+	margin: 0px;
+	padding: 5px 10px;
+
+}
+h3.nosh span{
+	width: 14px;
+	height: 7px;
+	position: absolute;
+	left: 10px;
+	bottom: -7px;
+	background-position: -59px -267px;
+	background-image: url(images/stuff.png) !important;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-indent: -9999px;
+
+}
+#all_facets span{
+	color: #777;
+}	
+#all_facets h4 span{
+	display: block;
+	width: 13px;
+	height: 13px;
+	margin: 2px 7px 0px 0px;
+	float: left;
+	background-image: url(images/hm.png) !important;
+	background-repeat: no-repeat;
+}
+.navOpen span{
+	background-position: -143px -70px;  	
+}
+.navClosed span{
+	background-position: -130px -70px;  	
+}
+.stripeOuter{
+	background: #fff url(images/stripe.png);
+	
+}
+#all_facets div a{
+	
+	display: block;
+	padding-bottom: 2px;
+	padding-left: 25px;
+	background: url(images/chk_box.png) no-repeat 10px 1px;
+	font-size: 12px;
+	
+	
+}
+
+#all_facets div a:visited{
+	color: #619eda;
+	text-decoration: none;	
+}
+#all_facets div a:link{
+	color: #2c5987;
+	text-decoration: none;	
+}
+#all_facets .nwMulti .nwSelected{
+	background-position: 10px -83px;
+		
+}
+#breadCrumbs{
+	position: relative;
+	width: 745px;
+	margin-bottom: 9px;
+	padding: 10px 8px;
+	float: right;
+	overflow: hidden;
+	color: #666;
+	border: 1px solid #e8e8e8;
+	background: #fff;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	ms-border-radius: 8px;
+	moz-border-radius: 8px;
+	-o-border-radius: 8px;
+
+}
+#breadCrumbs h4{
+	margin: 1px 15px 0px 14px;
+	float: left;
+	font-size: 0.85em;
+	color: #777;
+	text-transform: uppercase;
+
+}
+#breadCrumbs .remove{
+	display: inline-block;
+	height: 12px;
+	margin: 0px 12px 0px 0px;
+	padding: 0px 15px 3px 0px;
+	font-size: 0.85em;
+	color: #2c5987;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: #fff no-repeat right -943px;
+	background-image: url(images/more_stuff.png) !important;
+
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div id="all_facets">
+	<h3 class="nosh">Narrow Your Choices<span></span></h3>
+	<h4 class="stripeOuter navOpen"><span></span>Resource Type</h4>
+    <div id="res" class="nwMulti">
+        <a href="#" class>entry <span>(363)</span></a>
+        <a href="#" class>image <span>(263)</span></a>
+        <a href="#" class>document <span>(23)</span></a>
+        <a href="#" class>audio <span>(15)</span></a>
+        <a href="#" class>sound <span>(2)</span></a>
+    </div>
+	<h4 class="stripeOuter navOpen"><span></span>Source</h4>
+    <div id="src" class="nwMulti">
+        <a href="#" class>entry <span>(363)</span></a>
+        <a href="#" class>Library of Congress <span>(263)</span></a>
+        <a href="#" class>Virginia Historical Society <span>(23)</span></a>
+        <a href="#" class>The Museum of the Confederacy <span>(15)</span></a>
+        <a href="#" class>Library of Virginia <span>(2)</span></a>
+		<a href="#" class><em>Richmond Times-Dispatch</em> <span>(2)</span></a>
+		<a href="#" class>Valentine Richmond History Center<span>(2)</span></a>
+		<a href="#" class>The Colonial Williamsburg Foundation <span>(2)</span></a>
+		<a href="#" class>Hal Jesperson's Civil War Maps <span>(2)</span></a>
+    </div>
+	<h4 class="stripeOuter navOpen"><span></span>Medium</h4>
+    <div id="mdm" class="nwMulti">
+        <a href="#" class>Map <span>(363)</span></a>
+        <a href="#" class>Photograph <span>(263)</span></a>
+        <a href="#" class>Engraving <span>(23)</span></a>
+        <a href="#" class>Oil on Canvas <span>(15)</span></a>
+        <a href="#" class>Lithograph<span>(2)</span></a>
+    </div>
+	<h4 class="stripeOuter navOpen"><span></span>Category</h4>
+    <div id="ctgry" class="nwMulti">
+        <a href="#" class>Civil War, American (1861–1865) <span>(363)</span></a>
+        <a href="#" class>Twentieth Century History (1901–2000) <span>(263)</span></a>
+        <a href="#" class>Literature <span>(23)</span></a>
+        <a href="#" class>Nonfiction <span>(15)</span></a>
+        <a href="#" class>Poetry <span>(2)</span></a>
+    </div>
+</div>
+<div id="breadCrumbs" class>
+	<h4>Your selections</h4>
+	<div class="crumbList"></div>
+</div>
+<script>
+$("#all_facets h4").click(function() {
+	var myClass = $(this).attr("class");
+    
+	if(myClass == "stripeOuter navOpen")
+	{
+		//alert(myClass);
+		$(this).next("div").slideUp("fast");
+		$(this).removeClass("navOpen");
+		$(this).addClass("navClosed");
+	}
+	else
+	{
+		$(this).next("div").slideDown("fast");
+		$(this).removeClass("navClosed");
+		$(this).addClass("navOpen");
+	}
+});
+$("#all_facets div a").click(function (e) {
+	$(e.target).toggleClass("nwSelected");
+	var item_clicked = $(e.target).text();
+	var first_paren = item_clicked.indexOf("(");
+	var item = item_clicked.substr(0, first_paren);
+	
+	var item_clicked = "<a class='remove' href='#' title='remove "+item+"'>"+item+"</a>";
+	/*
+	$("#breadCrumbs .crumbList").append(item_clicked).click(function (e)
+	{
+		alert($(e.target).text());
+	});
+	*/
+});
+
+</script>
+</body>
+</html>
