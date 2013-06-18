@@ -174,7 +174,7 @@ h3.nosh span{
     </div>
 	<h4 class="stripeOuter navOpen"><span></span>Source</h4>
     <div id="src" class="nwMulti">
-        <a href="#" class>entry <span>(363)</span></a>
+        <a href="#" class>Some Museum <span>(363)</span></a>
         <a href="#" class>Library of Congress <span>(263)</span></a>
         <a href="#" class>Virginia Historical Society <span>(23)</span></a>
         <a href="#" class>The Museum of the Confederacy <span>(15)</span></a>
@@ -206,9 +206,9 @@ h3.nosh span{
 	<div class="crumbList"></div>
 </div>
 <script>
+
 $("#all_facets h4").click(function() {
 	var myClass = $(this).attr("class");
-    
 	if(myClass == "stripeOuter navOpen")
 	{
 		//alert(myClass);
@@ -223,19 +223,34 @@ $("#all_facets h4").click(function() {
 		$(this).addClass("navOpen");
 	}
 });
+$("#breadCrumbs .crumbList").click(function (e){
+	var text_to_remove = $(e.target).text();
+	$("#all_facets div a:contains('"+text_to_remove+"')").toggleClass("nwSelected");
+
+});
 $("#all_facets div a").click(function (e) {
 	$(e.target).toggleClass("nwSelected");
 	var item_clicked = $(e.target).text();
 	var first_paren = item_clicked.indexOf("(");
 	var item = item_clicked.substr(0, first_paren);
-	
-	var item_clicked = "<a class='remove' href='#' title='remove "+item+"'>"+item+"</a>";
-	/*
-	$("#breadCrumbs .crumbList").append(item_clicked).click(function (e)
+	var item = item.trim();
+	var item_title = "remove "+item;
+	var item_clicked = "<a class='remove' href='#' title='"+item_title+"'>"+item+"</a>";
+	if($(e.target).hasClass("nwSelected"))	
 	{
-		alert($(e.target).text());
-	});
-	*/
+		$("#breadCrumbs .crumbList").append(item_clicked).click(function (f)
+		{
+			$(f.target).remove();
+			//alert(item);
+			//$("#all_facets div a:contains('"+item+"')");
+			//$(e.target).toggleClass("nwSelected");
+		});
+	}
+	else
+	{
+		$('a.remove[title="'+item_title+'"]').remove();
+	}
+	
 });
 
 </script>

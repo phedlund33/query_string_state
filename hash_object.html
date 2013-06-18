@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="jquery.ba-bbq.min.js"></script>
+		<script>
+		$(function(){
+			var params = $.deparam.querystring();
+			
+			//$('#deparam_string').text( JSON.stringify( params, null, 2 ) );
+			$('#deparam_string').text(params.first);
+			var holder = "";
+			for(var propt in params){
+				holder += params[propt];
+				holder += "<br />";
+				alert(propt);
+			}
+			$('#deparam_string').html(holder);
+		});
+		</script>
+	<head>
+	<body>
+	<div id="deparam_string"></div>
+	</body>
+</html>
