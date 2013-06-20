@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="jquery.ba-bbq.min.js"></script>
+		<script src="jquery.ba-bbq.js"></script>
 		<script>
 		$(function(){
 			var params = $.deparam.querystring();
@@ -12,7 +12,7 @@
 			for(var propt in params){
 				holder += params[propt];
 				holder += "<br />";
-				alert(propt);
+				//alert(propt);
 			}
 			$('#deparam_string').html(holder);
 		});
@@ -20,5 +20,20 @@
 	<head>
 	<body>
 	<div id="deparam_string"></div>
+	<ul>
+		<li><a href="#" data-id="4">Four</a></li>
+		<li><a href="#" data-id="5">Five</a></li>
+	</ul>
+
+	<script>
+    $('a').click(function(evt) { 
+		evt.preventDefault();
+		var cur_qs = $.param.querystring();
+		var new_qs = cur_qs + "&next="+$(this).data("id");
+        //alert($(this).data("id"));
+		window.location = "hash_object.html?"+new_qs;
+    });
+</script>
+
 	</body>
 </html>
