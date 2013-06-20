@@ -10,8 +10,7 @@
 		<script>
 		$(function(){
 			var params = $.deparam.querystring();
-			
-			//$('#deparam_string').text( JSON.stringify( params, null, 2 ) );
+					
 			$('#deparam_string').text(params.first);
 			var holder = "";
 			for(var propt in params){
