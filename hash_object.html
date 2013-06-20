@@ -1,5 +1,10 @@
 <html>
 	<head>
+		<style>
+			.clicked{
+				color: red;				
+			}
+		</style>
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="jquery.ba-bbq.js"></script>
 		<script>
@@ -12,7 +17,9 @@
 			for(var propt in params){
 				holder += params[propt];
 				holder += "<br />";
-				//alert(propt);
+				//set the class of the links that are already in the query string
+				$('a[data-facet='+propt+']').toggleClass('clicked');
+				
 			}
 			$('#deparam_string').html(holder);
 		});
@@ -21,19 +28,19 @@
 	<body>
 	<div id="deparam_string"></div>
 	<ul>
-		<li><a href="#" data-id="4">Four</a></li>
-		<li><a href="#" data-id="5">Five</a></li>
+		<li><a href="#" data-id="4" data-facet="category" class>Category</a></li>
+		<li><a href="#" data-id="5" data-facet="type" class>Type</a></li>
 	</ul>
-
 	<script>
-    $('a').click(function(evt) { 
-		evt.preventDefault();
-		var cur_qs = $.param.querystring();
-		var new_qs = cur_qs + "&next="+$(this).data("id");
-        //alert($(this).data("id"));
-		window.location = "hash_object.html?"+new_qs;
-    });
-</script>
-
+		$('a').click(function(evt) { 
+			evt.preventDefault();
+			var cur_qs = $.param.querystring();
+			var new_qs = cur_qs + "&"+$(this).data('facet')+"="+$(this).data("id");
+			alert($(this).data("facet"));
+			if($(this).attr('class') != 'clicked'){
+				window.location = "hash_object.html?"+new_qs;
+			}
+		});
+	</script>
 	</body>
 </html>
