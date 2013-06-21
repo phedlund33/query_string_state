@@ -9,8 +9,8 @@
 		<script src="jquery.ba-bbq.js"></script>
 		<script>
 		$(function(){
+			//get the querystring parameters using the bbq library:
 			var params = $.deparam.querystring();
-					
 			$('#deparam_string').text(params.first);
 			var holder = "";
 			for(var propt in params){
