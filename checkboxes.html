@@ -220,7 +220,6 @@ h3.nosh span{
 			if(typeof params[propt] == "string") //<--- There is just one parameter in the querystring
 			{				
 				param_prop = params[propt].toLowerCase();
-				//alert(param_prop);
 				$("#all_facets div a[data-id="+param_prop+"]").toggleClass("nwSelected");
 				$("#breadCrumbs .crumbList").append("<a class='remove' href='#' title='"+param_prop+"'>"+param_prop+"</a>").click(function (f)
 				{
@@ -229,14 +228,12 @@ h3.nosh span{
 					{
 						$(f.target).remove();
 					}
-					//$("#all_facets div a[data-id="+param_prop+"]").toggleClass("nwSelected");
 				});
 			}
 			else
 			{
 				for(var i=0;i<params[propt].length; i++)
 				{
-					//alert(params[propt][i]);
 					$("#all_facets div a[data-id="+params[propt][i]+"]").toggleClass("nwSelected");	
 					$("#breadCrumbs .crumbList").append("<a class='remove' href='#' title='"+params[propt][i]+"'>"+params[propt][i]+"</a>").click(function (f)
 					{
@@ -245,9 +242,6 @@ h3.nosh span{
 						{
 							$(f.target).remove();
 						}
-						//$("#all_facets div a[data-id="+params[propt][i]+"]").toggleClass("nwSelected");
-						//$(e.target).toggleClass("nwSelected");
-						
 					});
 				}
 			}
@@ -263,7 +257,6 @@ h3.nosh span{
 		var myClass = $(this).attr("class");
 		if(myClass == "stripeOuter navOpen")
 		{
-			//alert(myClass);
 			$(this).next("div").slideUp("fast");
 			$(this).removeClass("navOpen");
 			$(this).addClass("navClosed");
@@ -279,12 +272,13 @@ h3.nosh span{
 	//*** Assign click function to bread crumbs
 	//*******************************************
 	$("#breadCrumbs .crumbList").click(function (e){
-		var clickedClass = $(e.target).attr('class');
-		if(clickedClass == "remove")
+		var clickedClass = $(e.target).attr('class'); //get the class of the element clicked
+		if(clickedClass == "remove") //only remove the element if it's the link element and not the div
 		{
 			var text_to_remove = $(e.target).text();
 			text_to_remove = text_to_remove.toLowerCase();
 			$("#all_facets div a:contains('"+text_to_remove+"')").toggleClass("nwSelected");
+			updateQS();
 		}
 	});
 	
@@ -296,16 +290,14 @@ h3.nosh span{
 	{
 		var strQS = "";
 		$( "#all_facets a" ).each(function( index ) {
-		  if($(this).hasClass("nwSelected"))
-		  {	  
-			strQS += "&"+$(this).data('facet')+"="+$(this).data("id");
-			//alert($(this).text());
-		   }
+			if($(this).hasClass("nwSelected"))
+			{	  
+				strQS += "&"+$(this).data('facet')+"="+$(this).data("id");
+			}
 		});
 		//THIS MAY NEED TO BE CHANGED TO "location.host" when on a server:
 		var basePath=location.pathname;
 		window.location = basePath + "?" + strQS;
-		//return strQS;
 	}
 	//**************************************************
 	//*** Function called when a checkbox is clicked
@@ -313,7 +305,7 @@ h3.nosh span{
 	$("#all_facets div a").click(function (e) {		
 		e.preventDefault();
 		$(e.target).toggleClass("nwSelected");
-		//create new querystring URL to load
+		//reload page with new state
 		updateQS();
 	});
 
